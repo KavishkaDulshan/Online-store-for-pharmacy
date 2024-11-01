@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Healthway Medical Network</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;  
+            background-color: #F0F0F0;
+            background-image: url('https://www.transparenttextures.com/patterns/pattern.png');
+            background-size: cover; /* Ensures the background covers the entire viewport */
+            background-position: center; /* Centers the background image */
+            padding-top: 50px; /* Space for the fixed navbar */
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(90deg, #3E704D, #2B4B3C);
+            padding: 15px 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            display: flex;
+            align-items: center; /* Center items vertically */
+        }
+
+        .navbar-title {
+            color: #FFFFFF;
+            font-size: 20px; /* Larger font size for title */
+            margin-right: auto; /* Pushes the nav links to the right */
+            font-weight: bold;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: flex-end; /* Align links to the right */
+        }
+
+        .navbar ul li {
+            margin: 0 10px;
+        }
+
+        .navbar ul li a {
+            color: #FFFFFF;
+            font-size: 18px;
+            padding:  0px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+
+        .navbar ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            color: #FFFFFF;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .overlay h {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #f6e1e1;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .container {
+            position: relative;
+            max-width: 100%;
+        }
+
+        .background-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        article {
+            max-width: 800px; /* Increase the width to 800px or as needed */
+            margin: 40px auto; /* Center the article with more vertical space */
+            padding: 30px; /* Add more padding for a better look */
+            text-align: justify;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #666;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
+            transition: box-shadow 0.3s;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s forwards;
+        }
+
+
+
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        article:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            padding: 10px;
+            text-align: center;
+            background-color: #333;
+            color: #FFFFFF;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer a {
+            color: #FFFFFF;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #57B279;
+        }
+
+        @media (max-width: 600px) {
+            .navbar ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .navbar ul li {
+                margin: 5px 0;
+            }
+
+            article {
+                margin: 10px;
+            }
+            
+
+            pp {
+                font-size: 20px;
+                color: #504f4f;
+            }
+
+            content {
+                display: none;
+            }
+
+            content.active {
+                display: block;
+            }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-title">Welcome to Health Bridge</div>
+        <ul>
+            <li><a href="#" data-location="colombo"><i class="fas fa-hospital"></i>   Colombo</a></li>
+            <li><a href="#" data-location="kurunegala"><i class="fas fa-hospital"></i>   Kurunegala</a></li>
+            <li><a href="#" data-location="kaluthara"><i class="fas fa-hospital"></i>   Kaluthara</a></li>
+            <li><a href="#" data-location="maharagama"><i class="fas fa-hospital"></i>   Maharagama</a></li>
+            <li><a href="#" data-location="rathnapura"><i class="fas fa-hospital"></i>   Rathnapura</a></li>
+        </ul>
+    </div>
+    
+    <div class="container">
+        <img src="C:\Web_Project_Medical_center\web_project_image\background.jpeg" class="background-image">
+        <div class="overlay">
+            <h>The Healthway Medical Network</h>
+            <article id="content" class="background">
+                <pp>We provide comprehensive healthcare services to meet your needs.<br>
+                Inpatient Care: For conditions requiring extended care, our hospital offers comfortable inpatient facilities with round-the-clock medical attention.<br>
+                Outpatient Care: For routine check-ups, consultations, and minor procedures, we offer convenient outpatient services.</pp>
+            </article>
+        </div>
+        
+        <footer>
+            <br>
+            <a href="#">Colombo</a> |
+            <a href="#">Kurunegala</a> |
+            <a href="#">Kaluthara</a> |
+            <a href="#">Maharagama</a> |
+            <a href="#">Rathnapura</a>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+    <script>
+        const navLinks = document.querySelectorAll('.navbar ul li a');
+        const content = document.getElementById('content');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                const location = link.getAttribute('data-location');
+
+                // Clear previous content
+                content.innerHTML = '';
+                content.style.opacity = 0; // Fade out effect
+
+                // Add content based on location
+                if (location === 'colombo') {
+                    content.innerHTML = `
+                        <h2>Colombo</h2>
+                        <p>Our flagship hospital in Colombo is a leading healthcare provider, 
+                        renowned for its world-class medical expertise and state-of-the-art facilities.
+                        With a team of highly skilled doctors, including <b>Dr. T.M.D. Senawirathna</b>,
+                        a renowned cardiologist, and <b>Dr. K.L. Upali</b>, a leading oncologist, 
+                        we offer a comprehensive range of services.
+                        <br><br>Advanced diagnostic and treatment facilities
+                        <br>Experienced and compassionate medical staff
+                        <br>Convenient location and ample parking</p>
+                         `;
+                } else if (location === 'kurunegala') {
+                    content.innerHTML = `
+                        <h2>Kurunegala</h2>
+                        <p>Our Kurunegala hospital is committed to delivering quality healthcare
+                        to the people of the Central Province. Led by <b>Dr. Lalitha Kumari</b>,
+                        a skilled pediatrician, and <b>Dr. M.M. Kumara</b>, a renowned surgeon, 
+                        our hospital offers a wide range of services, including pediatric care, 
+                        general surgery, and orthopedic care.
+                        <br><br>Family-friendly atmosphere
+                        <br>Modern amenities and technology
+                        <br>Affordable healthcare solutions
+                        <br>Strong emphasis on preventive care</p>
+                    `;
+                } else if (location === 'kaluthara') {
+                    content.innerHTML = `
+                        <h2>Kaluthara</h2>
+                        <p>Our Kaluthara hospital is a trusted healthcare provider in the coastal region. 
+                        With a focus on patient satisfaction, we offer a range of services, including general medicine, 
+                        gynecology, and dentistry. <b>Dr. A.P.Perera</b>, a skilled gynecologist, and 
+                        <b>Dr. S.S.Senadeera</b>, a renowned general physician, lead our team of experienced healthcare professionals.
+                        <br><br>Peaceful and serene environment
+                        <br>Experienced doctors and nurses
+                        <br>Convenient location near the beach
+                        <br>Emphasis on holistic wellness</p>
+                    `;
+                } else if (location === 'maharagama') {
+                    content.innerHTML = `
+                        <h2>Maharagama</h2>
+                        <p>Our Maharagama hospital is a leading healthcare provider in the Western Province. 
+                        With a focus on advanced medical treatments, we offer a wide range of specialties, 
+                        including cardiology, neurology, and oncology. <b>Dr. P.Karunarathna</b>, a renowned cardiologist, 
+                        and <b>Dr. T.M.Somalatha</b>, a skilled neurologist, are among our team of experts.
+                        <br><br>Latest medical technologies
+                        <br>Highly qualified specialists
+                        <br>Patient-centric approach</p>
+                    `;
+                } else if (location === 'rathnapura') {
+                    content.innerHTML = `
+                        <h2>Rathnapura</h2>
+                        <p>Our Rathnapura hospital is committed to providing quality healthcare to the people of the Sabaragamuwa Province. 
+                        With a focus on community health, we offer a range of services, including general medicine, pediatrics, and geriatrics. 
+                        <b>Dr. A.M.Smarawikkrama</b>, a skilled pediatrician, and <b>Dr. H.M.Mallika</b>, a renowned geriatrician, lead our team of dedicated healthcare professionals.
+                        <br><br>Affordable healthcare solutions
+                        <br>Friendly and compassionate staff
+                        <br>Convenient location and ample parking</p>
+                    `;
+                } else {
+                    content.innerHTML = '<p>Invalid location</p>';
+                }
+
+                // Fade-in effect for content
+                content.style.opacity = 1;
+
+                // Trigger animation
+                content.classList.add('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
