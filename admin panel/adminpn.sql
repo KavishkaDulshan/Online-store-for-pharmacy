@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2024 at 12:31 PM
+-- Generation Time: Nov 02, 2024 at 12:59 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -52,15 +52,16 @@ CREATE TABLE `products` (
   `price` decimal(10,2) NOT NULL,
   `description` text DEFAULT NULL,
   `quantity` int(11) DEFAULT 0,
-  `image` varchar(255) DEFAULT NULL
+  `image` varchar(255) DEFAULT NULL,
+  `category` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `price`, `description`, `quantity`, `image`) VALUES
-(2, 'car', 500000.00, 'sport car', 5, 'uploads/wp5800950-shelf-picture-desktop-wallpapers.jpg');
+INSERT INTO `products` (`id`, `name`, `price`, `description`, `quantity`, `image`, `category`) VALUES
+(2, 'car', 500000.00, 'sport car', 5, 'uploads/wp5800950-shelf-picture-desktop-wallpapers.jpg', 'Electronics');
 
 --
 -- Indexes for dumped tables
