@@ -1,0 +1,28 @@
+/* Center the login form */
+body {
+    background-color: #f8f9fa;
+}
+
+.login-container {
+    width: 300px;
+    max-width: 100%;
+}
+
+.card {
+    border-radius: 8px;
+}
+
+.btn-block {
+    border-radius: 4px;
+}
+
+/* Custom table styles */
+.table-bordered th, .table-bordered td {
+    vertical-align: middle;
+}
+
+.img-thumbnail {
+    max-height: 50px;
+    display: block;
+    margin: auto;
+}
