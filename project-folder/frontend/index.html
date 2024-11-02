@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Management</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Payment Management</h1>
+
+    <div class="form-container">
+        <h2>Add Payment</h2>
+        <form id="paymentForm">
+            <label for="customerId">Customer ID</label>
+            <input type="number" id="customerId" placeholder="Customer ID" required>
+
+            <label for="orderId">Order ID</label>
+            <input type="number" id="orderId" placeholder="Order ID" required>
+
+            <label for="amount">Amount</label>
+            <input type="number" id="amount" placeholder="Amount" step="0.01" required>
+
+            <label for="paymentMethod">Payment Method</label>
+            <select id="paymentMethod" required>
+                <option value="Credit Card">Credit Card</option>
+                <option value="Debit Card">Debit Card</option>
+                <option value="Cash">Cash</option>
+                <option value="Online Payment">Online Payment</option>
+            </select>
+
+            <button type="submit">Add Payment</button>
+        </form>
+    </div>
+
+    <h2>Payment List</h2>
+    <ul id="paymentList" class="payment-list"></ul>
+</div>
+
+<script src="assets/js/payment.js"></script>
+</body>
+</html>
