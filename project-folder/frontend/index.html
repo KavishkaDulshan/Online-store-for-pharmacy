@@ -1,0 +1,16 @@
+html
+        <h2>Add Payment</h2>
+        <form id="paymentForm">
+            <input type="number" id="orderId" placeholder="Order ID" required>
+            <input type="number" id="amount" placeholder="Amount" step="0.01" required>
+            <select id="paymentMethod" required>
+                <option value="Credit Card">Credit Card</option>
+                <option value="Debit Card">Debit Card</option>
+                <option value="Cash">Cash</option>
+                <option value="Online Payment">Online Payment</option>
+            </select>
+            <button type="submit">Add Payment</button>
+        </form>
+        <ul id="paymentList"></ul>
+
+        <script src="assets/js/payment.js"></script>
