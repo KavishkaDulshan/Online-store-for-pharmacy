@@ -7,22 +7,70 @@ if (!isset($_SESSION['admin'])) {
 
 include('db.php');
 
+// Define categories array directly in PHP
+$categories = ['Electronics', 'Clothing', 'Home & Kitchen', 'Beauty', 'Books'];
+
+// Handling product operations
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Add, edit, delete logic (same as before)
+    // Add product
+    if (isset($_POST['add_product'])) {
+        $name = $_POST['name'];
+        $price = $_POST['price'];
+        $description = $_POST['description'];
+        $quantity = $_POST['quantity'];
+        $category = $_POST['category'];
+        $image = $_FILES['image']['name'];
+        
+        // Image upload logic
+        $target = "uploads/" . basename($image);
+        move_uploaded_file($_FILES['image']['tmp_name'], $target);
+
+        // Insert new product
+        $sql = "INSERT INTO products (name, price, description, quantity, category, image) 
+                VALUES ('$name', '$price', '$description', '$quantity', '$category', '$image')";
+        $conn->query($sql);
+    }
+
+    // Edit product
+    if (isset($_POST['edit_product'])) {
+        $id = $_POST['id'];
+        $name = $_POST['name'];
+        $price = $_POST['price'];
+        $description = $_POST['description'];
+        $quantity = $_POST['quantity'];
+        $category = $_POST['category'];
+        
+        // Image update
+        if (!empty($_FILES['image']['name'])) {
+            $image = $_FILES['image']['name'];
+            $target = "uploads/" . basename($image);
+            move_uploaded_file($_FILES['image']['tmp_name'], $target);
+            $sql = "UPDATE products SET name='$name', price='$price', description='$description', 
+                    quantity='$quantity', category='$category', image='$image' WHERE id='$id'";
+        } else {
+            $sql = "UPDATE products SET name='$name', price='$price', description='$description', 
+                    quantity='$quantity', category='$category' WHERE id='$id'";
+        }
+        $conn->query($sql);
+    }
+
+    // Delete product
+    if (isset($_POST['delete_product'])) {
+        $id = $_POST['id'];
+        $sql = "DELETE FROM products WHERE id='$id'";
+        $conn->query($sql);
+    }
 }
 
 $products = $conn->query("SELECT * FROM products");
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
-    <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -53,9 +101,18 @@ $products = $conn->query("SELECT * FROM products");
                         <input type="number" class="form-control" name="quantity" required>
                     </div>
                     <div class="form-group col-md-6">
-                        <label>Image:</label>
-                        <input type="file" class="form-control-file" name="image" required>
+                        <label>Category:</label>
+                        <select class="form-control" name="category">
+                            <option value="">Select Category</option>
+                            <?php foreach ($categories as $category) { ?>
+                                <option value="<?= $category ?>"><?= $category ?></option>
+                            <?php } ?>
+                        </select>
                     </div>
+                </div>
+                <div class="form-group">
+                    <label>Image:</label>
+                    <input type="file" class="form-control-file" name="image" required>
                 </div>
                 <button type="submit" name="add_product" class="btn btn-success btn-block">Add Product</button>
             </form>
@@ -70,6 +127,7 @@ $products = $conn->query("SELECT * FROM products");
                     <th>Price</th>
                     <th>Description</th>
                     <th>Quantity</th>
+                    <th>Category</th>
                     <th>Image</th>
                     <th>Actions</th>
                 </tr>
@@ -82,6 +140,14 @@ $products = $conn->query("SELECT * FROM products");
                         <td><input type="text" class="form-control" name="price" value="<?= $product['price'] ?>"></td>
                         <td><textarea class="form-control" name="description"><?= $product['description'] ?></textarea></td>
                         <td><input type="number" class="form-control" name="quantity" value="<?= $product['quantity'] ?>"></td>
+                        <td>
+                            <select class="form-control" name="category">
+                                <option value="">Select Category</option>
+                                <?php foreach ($categories as $category) { ?>
+                                    <option value="<?= $category ?>" <?= $product['category'] == $category ? 'selected' : '' ?>><?= $category ?></option>
+                                <?php } ?>
+                            </select>
+                        </td>
                         <td>
                             <img src="<?= $product['image'] ?>" width="50" class="img-thumbnail">
                             <input type="file" class="form-control-file" name="image">
