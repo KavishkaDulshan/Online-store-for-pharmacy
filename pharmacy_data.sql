@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 05, 2024 at 04:16 PM
+-- Generation Time: Nov 05, 2024 at 04:27 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -72,10 +72,11 @@ CREATE TABLE `orders` (
 --
 
 CREATE TABLE `payment` (
-  `pay_id` int(11) NOT NULL,
-  `pay_method` varchar(50) NOT NULL,
-  `amount` decimal(10,2) NOT NULL,
-  `order_id` int(11) NOT NULL
+  `PaymentID` int(11) NOT NULL,
+  `PaymentMethod` varchar(50) NOT NULL,
+  `PaymentDate` datetime DEFAULT current_timestamp(),
+  `Amount` decimal(10,2) NOT NULL,
+  `OrderID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -149,8 +150,8 @@ ALTER TABLE `orders`
 -- Indexes for table `payment`
 --
 ALTER TABLE `payment`
-  ADD PRIMARY KEY (`pay_id`),
-  ADD KEY `order_id` (`order_id`);
+  ADD PRIMARY KEY (`PaymentID`),
+  ADD KEY `OrderID` (`OrderID`);
 
 --
 -- Indexes for table `products`
@@ -191,7 +192,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `pay_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `PaymentID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -226,7 +227,7 @@ ALTER TABLE `orders`
 -- Constraints for table `payment`
 --
 ALTER TABLE `payment`
-  ADD CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`OrderID`) REFERENCES `orders` (`order_id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
