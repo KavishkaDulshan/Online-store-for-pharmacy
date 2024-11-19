@@ -1,0 +1,93 @@
+
+body {
+    background-image: url('bg.jpg');
+    background-size: cover; 
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #c3c8ff;
+    color: #fff;
+}
+
+
+.btn {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #00bfff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    padding: 20px;
+}
+
+.signup-form {
+    background-color: #612df1;
+    padding: 50px;
+    border-radius: 40px;
+    width: 400px;
+    text-align: center;
+}
+
+.signup-form h2 {
+    color: #030b0d;
+    margin-bottom: 50px;
+}
+
+.signup-form input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #12181b;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #333;
+}
+
+.signup-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #101416;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.link {
+    color: #ccc;
+    margin-top: 15px;
+}
+
+.link a {
+    color: #021014;
+    text-decoration: none;
+}
+
+.liw {
+    margin-top: 20px;
+    color: #ccc;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.icons a ion-icon {
+    font-size: 24px;
+    color: #030d11;
+}
+

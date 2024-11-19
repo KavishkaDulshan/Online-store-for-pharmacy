@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health-Bridge Online Pharmacy FAQ</title>
+    <!-- Bootstrap CSS -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+
+        .nunito {
+            font-family: "Nunito", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: bold;
+            font-style: normal;
+}
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            background-image: url('zzzz copy.jpg');
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: "Nunito", sans-serif;
+
+        }
+
+         /* Navbar Styling */
+         .navbar {
+            padding: 15px 20px;
+        }
+        
+        .navbar .nav-link {
+            color: #ffffff;
+            font-weight: bold;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .navbar .nav-link:hover {
+            color: #0dcaf0; /* Bootstrap's primary color */
+            transform: scale(1.1);
+        }
+        
+        /* Ionicon Styling */
+        ion-icon {
+            font-size: 28px;
+            color: #ffffff;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        
+        ion-icon:hover {
+            color: #0dcaf0;
+            transform: rotate(10deg);
+        }
+        /* Search Bar */
+        .search .form-control {
+            background-color: #222;
+            color: #ffffff;
+            border: 1px solid #444;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .search .form-control:hover,
+        .search .form-control:focus {
+            background-color: #333;
+            transform: scale(1.02);
+        }
+
+        .search .btn-outline-light {
+            color: #ffffff;
+            border-color: #0dcaf0;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .search .btn-outline-light:hover {
+            background-color: #0dcaf0;
+            color: #000000;
+            transform: scale(1.05);
+        }
+
+        /* Content Section */
+        .content h1 {
+            font-size: 50px;
+            text-align: center;
+            margin-top: 15%;
+            letter-spacing: 2px;
+            color: #ffffff;
+        }
+
+        .content h1 span {
+            color: #0dcaf0;
+            font-size: 60px;
+        }
+
+        .content .form {
+            width: 300px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0.8) 50%);
+            margin: 30px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+        }
+
+
+
+
+        .navbar {
+            z-index: 10;
+        }
+
+        .navbar .nav-link {
+            color: #ffffff;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .nav-link:hover {
+            color: #0dcaf0;
+        }
+
+        .navbar .nav-link.active {
+            color: #ffcc00; /* Active link color */
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+        }
+
+        .form-control {
+            background-color: #222;
+            color: #fff;
+            border: 1px solid #444;
+        }
+
+        .form-control::placeholder {
+            color: #bbb;
+        }
+
+        .btn-primary {
+            background-color: #0dcaf0;
+            border-color: #0dcaf0;
+        }
+
+        .btn-primary:hover {
+            background-color: #0bbbe3;
+            border-color: #0bbbe3;
+        }
+
+
+        /* FAQ Section Styles */
+        .faq-container {
+            margin-top: 200px; /* This margin pulls the FAQ section down */
+            border: 5px solid rgb(123, 214, 228);
+            backdrop-filter: blur(15px);
+            max-width: 600px;
+            margin: auto;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #0f0a0a;
+            text-shadow: 2px 2px 0 blue, -2px -2px 0 cyan;
+        }
+
+        p {
+            color: rgb(10, 18, 24);
+        }
+
+        details {
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e6e5ed;
+            padding-bottom: 10px;
+            position: relative;
+            border: 2px solid #6d6767;
+            border-radius: 10px;
+            padding: 5px;
+            max-height: 200px;
+        }
+
+        summary {
+            cursor: pointer;
+            color: #0e3051;
+            margin: 0;
+            outline: none;
+            transition: color 0.3s;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        summary:hover {
+            text-decoration: underline;
+            color: #061167;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .faq-container {
+                margin-top: 250px; /* More space for mobile screens */
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body class="nunito">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand logo" href="home.html">Health-Bridge</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/navi/home2.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/navi/About/AboutN.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/navi/branch/branch.html">Branches</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/navi/Blog/Blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/navi/FAQ/FAQ.html">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link cart-icon" href="/navi/phar/cart.php"><ion-icon name="cart"></ion-icon></a></li>
+                </ul>
+                <form class="d-flex ms-3">
+                    <input class="form-control me-2" type="search" placeholder="Type to search" aria-label="Search">
+                    <button class="btn btn-outline-light" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- FAQ Section -->
+    <div class="faq-container">
+        <h1>Frequently Asked Questions</h1>
+        
+        <details>
+            <summary><b>1. What types of medications can I purchase from your online pharmacy?</b></summary>
+            <p>You can purchase prescription medications, over-the-counter drugs, vitamins, and health supplements.</p>
+        </details>
+        
+        <details>
+            <summary><b>2. How do I ensure my prescription is valid for online orders?</b></summary>
+            <p>You must provide a valid prescription from a licensed healthcare provider, which can be uploaded during the ordering process.</p>
+        </details>
+        
+        <details>
+            <summary><b>3. Is my personal information safe?</b></summary>
+            <p>Yes, We use encryption technology and secure servers to protect your personal and payment information.</p>
+        </details>
+        
+        <details>
+            <summary><b>4. How can I check the status of my order?</b></summary>
+            <p>After your order is shipped, you will receive an email with a tracking number. You can use this number to see where your package is and when it will arrive.</p>
+        </details>
+        
+        <details>
+            <summary><b>5. What should I do if I have questions about my medication?</b></summary>
+            <p>You can contact our licensed pharmacists via phone or live chat for any questions regarding your medications or health concerns.</p>
+        </details>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+</body>
+</html>

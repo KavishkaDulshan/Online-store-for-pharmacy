@@ -1,0 +1,110 @@
+
+.main {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f9fa; /* Ensure the main background color is the same */
+}
+.product {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 15px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color:   rgb(8, 46, 53, 0.75);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.product img {
+    max-width: 100%;
+    height: 200px; /* Fixed height for images */
+    object-fit: cover; /* Maintain aspect ratio */
+    border-radius: 10px;
+}
+.product h2 {
+    font-size: 1.8em; /* Slightly larger font size */
+    margin: 10px 0;
+    color: #ffffff; /* Black color */
+    font-weight: bold; /* Bold font */
+}
+.product p {
+    font-size: 1em;
+    color: #ffffff;
+}
+.product .price {
+    font-size: 1.6em;
+    color: #10b6e9;
+}
+.product .quantity {
+    font-size: 1em;
+    color: #19da12;
+    margin: 10px 0;
+}
+.product .btn {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    color: black;
+}
+.cart-icon {
+    position: relative;
+}
+.cart-icon .badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    transform: translate(50%, -50%);
+}
+.sidebar {
+    padding: 15px;
+    border-right: 1px solid #ccc;
+    margin-top: 50px; /* Add margin to create space */
+}
+.sidebar h3 {
+    margin-bottom: 15px;
+}
+.sidebar .list-group-item {
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.1em;
+}
+.sidebar .list-group-item:hover {
+    background-color: #f8f9fa;
+}
+
+
+
+
+.list-group-item{
+    width: 200;
+    background-color: rgb(85, 169, 172);
+    border: 2px solid rgb(3, 15, 34);
+
+}
+
+.img-thumbnail{
+    width: 200px;
+    border: 1px solid black;
+
+}
+
+.tb{
+    border: 2px solid black;
+    border-radius: 10%;
+}
+
+.catstyle{
+    background-color: rgb(8, 46, 53);
+    color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.h3style{
+    color: rgb(8, 46, 53);
+    font-weight: bold;
+    text-align: center;
+}

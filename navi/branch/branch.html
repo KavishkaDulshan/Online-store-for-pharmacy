@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Healthway Medical Network</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+      <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> 
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+
+    <style>
+        .nunito {
+            font-family: "Nunito", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: bold;
+            font-style: normal;
+        }
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-image: url("branch/background.jpg");
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            min-height: 10vh;
+        }
+     /* Navbar Styling */
+        .navbar {
+            position: fixed; /* Fix it to the top */
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000; /* Ensure it stays on top of other elements */
+            padding: 15px 20px;
+        }
+        .navbar .nav-link {
+            color: #ffffff;
+            font-weight: bold;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .navbar .nav-link:hover {
+            color: #0dcaf0; /* Bootstrap's primary color */
+            transform: scale(1.1);
+        }
+        
+        /* Ionicon Styling */
+        ion-icon {
+            font-size: 28px;
+            color: #ffffff;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        
+        ion-icon:hover {
+            color: #0dcaf0;
+            transform: rotate(10deg);
+        }
+        /* Search Bar */
+        .search .form-control {
+            background-color: #222;
+            color: #ffffff;
+            border: 1px solid #444;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .search .form-control:hover,
+        .search .form-control:focus {
+            background-color: #333;
+            transform: scale(1.02);
+        }
+
+        .search .btn-outline-light {
+            color: #ffffff;
+            border-color: #0dcaf0;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .search .btn-outline-light:hover {
+            background-color: #0dcaf0;
+            color: #000000;
+            transform: scale(1.05);
+        }
+
+        /* Content Section */
+        .content h1 {
+            font-size: 50px;
+            text-align: center;
+            margin-top: 15%;
+            letter-spacing: 2px;
+            color: #ffffff;
+        }
+
+        .content h1 span {
+            color: #0dcaf0;
+            font-size: 60px;
+        }
+
+        .content .form {
+            width: 300px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0.8) 50%);
+            margin: 30px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+        }
+        .navbar {
+            z-index: 10;
+            
+            
+        }
+
+        .navbar .nav-link {
+            color: #ffffff;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .nav-link:hover {
+            color: #0dcaf0;
+        }
+
+        .navbar .nav-link.active {
+            color: #ffcc00; /* Active link color */
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+        }
+
+        .form-control {
+            background-color: #222;
+            color: #fff;
+            border: 1px solid #444;
+        }
+
+        .form-control::placeholder {
+            color: #bbb;
+        }
+
+        .btn-primary {
+            background-color: #0dcaf0;
+            border-color: #0dcaf0;
+        }
+
+        .btn-primary:hover {
+            background-color: #0bbbe3;
+            border-color: #0bbbe3;
+        }
+        /* First Sidebar Styles */
+        .sidebar {
+            background: linear-gradient(to top, rgb(0, 0, 0)50%,rgb(0, 0, 0)50%); 
+            width: 80px;
+            min-width: 80px;
+            height: 100vh;
+            position: fixed;
+            top: 25px; 
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 150px;
+            transition: width 0.3s ease;
+            box-shadow: 3px 0 15px rgba(0, 0, 0, 0.225);
+        }
+
+        .sidebar:hover {
+            width: 220px;
+        }
+
+        .sidebar .nav-item {
+            width: 60px;
+            height: 60px;
+            margin: 15px 0;
+            transition: background-color 0.3s ease, width 0.3s ease;
+        }
+
+        .sidebar:hover .nav-item {
+            width: 200px;
+        }
+
+        .sidebar .nav-link {
+            color: #ffffff;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            text-decoration: none;
+            border-radius: 8px;
+            padding: 0px;
+            transition: background-color 0.3s ease, color 0.30s ease;
+        }
+        
+
+        .sidebar .nav-link i {
+            font-size: 22px;
+            margin-right: 0;
+            transition: margin-right 0.3s ease, color 0.3s ease;
+        }
+
+        .sidebar:hover .nav-link i {
+            margin-right: 10px;
+            color: #00fbff;
+        }
+
+        .sidebar .nav-link span {
+            display: none;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .sidebar:hover .nav-link span {
+            display: inline;
+            opacity: 1;
+        }
+
+        .sidebar .nav-link:hover {
+            background-color: rgba(171, 236, 244, 0.873);
+            color: #000000;
+            width: 145px;
+        }
+        
+        /* Main Content Styles */
+        .main-content {
+            margin-top: 5%;
+            margin-left: 80px;
+            padding: 0px;
+            transition: margin-left 0.3s ease;
+
+        }
+
+        .sidebar:hover ~ .main-content {
+            margin-left: 220px;
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 40px;
+            max-width: 900px;
+            margin:  50px auto;
+
+            background: rgba(171, 236, 244, 0.873);
+            border-radius: 12px;
+            padding: 90px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .section h2 {
+            color: #010730e0;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        .section p {
+            line-height: 1.3;
+            color: #010730e0;
+            font-size: 1rem;
+            text-align: justify;
+            font-family: tahoma,verdana,sans-serif;
+        }
+
+        .section ul {
+            color: #030b97d8;
+            padding-left: 20px;
+            list-style-type: square;
+            font-family: tahoma,verdana,sans-serif;
+
+        }
+
+        .bg{
+            
+            display:flexbox;
+        
+            margin-bottom: 40px;
+            margin: 20px auto;
+            background: rgba(6, 14, 255, 0.1);
+            border-radius: 12px;
+            padding: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        /* Container for the map */
+         .map-container {
+            position: relative;
+            width: 100%;
+            height: 90px;
+            
+            border-radius: 1px;
+        }
+        .contact-info p{
+            color: #01034d;
+            text-align: center;
+            margin-top: 0.35%;
+
+        }
+
+        /* Custom icon for the marker */
+        .map-marker {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            background-size: contain;
+            background-repeat: no-repeat;
+            top: 30%;
+            left: 50%; /* where you want the icon to appear */
+            transform: translate(-40%, -50%);
+
+        }
+        
+        .img{
+            margin-top: 5%;
+            width: 50%;
+            height: 50%;
+            margin-left: 20%;
+            /* margin: 20px auto; */
+            background: rgba(4, 5, 35, 0.1);
+            border-radius: 10px;
+            padding: 8px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+       
+
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: auto;
+                min-width: 55px;
+            }
+
+            .sidebar:hover {
+                width: 140px;
+            }
+
+            .main-content {
+                margin-left: 60px;
+                margin-top: auto;
+            
+            }
+            
+
+            .sidebar:hover ~ .main-content {
+                margin-left: 145px;
+                margin-top: 10px;
+                width: auto;
+                
+            }
+            
+           
+        }
+
+            
+            
+        
+    </style>
+</head>
+<body class="nunito">
+
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand logo" href="home.html">Health-Bridge</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/navi/home2.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/navi/About/AboutN.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/navi/branch/branch.html">Branches</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/navi/Blog/Blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/navi/FAQ/FAQ.html">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link cart-icon" href="/navi/phar/cart.php"><ion-icon name="cart"></ion-icon></a></li>
+                </ul>
+                <form class="d-flex ms-3">
+                    <input class="form-control me-2" type="search" placeholder="Type to search" aria-label="Search">
+                    <button class="btn btn-outline-light" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+   
+
+        
+
+
+    <!-- Sidebar Navigation -->
+     
+    <nav class="sidebar">
+        <a class="nav-item nav-link" href="#colombo">
+            <i class="fas fa-hospital"></i>
+            <span>Colombo</span>
+        </a>
+        <a class="nav-item nav-link" href="#kurunegala">
+            <i class="fas fa-hospital"></i>
+            <span>Kurunegala</span>
+        </a>
+        <a class="nav-item nav-link" href="#kaluthara">
+            <i class="fas fa-hospital"></i>
+            <span>Kaluthara</span>
+        </a>
+        <a class="nav-item nav-link" href="#maharagama">
+            <i class="fas fa-hospital"></i>
+            <span>Maharagama</span>
+        </a>
+        <a class="nav-item nav-link" href="#rathnapura">
+            <i class="fas fa-hospital"></i>
+            <span>Rathnapura</span>
+        </a>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        
+        <!-- Colombo Section -->
+        <section id="colombo" class="section">
+            
+            <h2>Colombo</h2>
+            <p>
+                Our flagship hospital in Colombo is a leading healthcare provider, renowned for its world-class medical expertise and state-of-the-art facilities.
+                With a team of highly skilled doctors, including <b>Dr. T.M.D. Senawirathna</b>, a renowned cardiologist, and <b>Dr. K.L. Upali</b>, a leading oncologist,
+                we offer a comprehensive range of services.<br>
+            </p>
+            <br>
+            <ul>
+                <li>Advanced diagnostic and treatment facilities</li>
+                <li>Experienced and compassionate medical staff</li>
+                <li>Convenient location and ample parking</li>
+            </ul>
+            <div class="contact-info">
+                <img src="branch/rathnapura.jpg" class="img">
+                <div class="map-container">
+                    <div class="map-marker" title="Location Name">
+                        <div >
+                            <p>Address: 123 Main St, Colombo, Sri Lanka</p>
+                            <p>Phone: +94 11 123 4567</p>
+                            <p><a href="https://maps.google.com/?q=Colombo" target="_blank">View on Google Maps</a></p><br>
+                      
+                         </div>  
+                    </div>
+                     
+        </section>
+        
+        <!-- Kurunegala Section -->
+        <section id="kurunegala" class="section">
+            <h2>Kurunegala</h2>
+            <p>
+                Our Kurunegala hospital is committed to delivering quality healthcare to the people of the Central Province. Led by <b>Dr. Lalitha Kumari</b>,
+                a skilled pediatrician, and <b>Dr. M.M. Kumara</b>, a renowned surgeon, our hospital offers a wide range of services, including pediatric care,
+                general surgery, and orthopedic care.<br>
+            </p>
+            <br>
+            <ul>
+                <li>Family-friendly atmosphere</li>
+                <li>Modern amenities and technology</li>
+                <li>Affordable healthcare solutions</li>
+            </ul>
+            <div class="contact-info">
+            <div class="map-markerk" title="Location Name"></div>
+            <img src="branch/bm1.jpg" class="img">
+            <div >
+                <p>Address: 45 Union Road, Kurunegala, Sri Lanka</p>
+                <p>Phone: +94 37 456 7890</p>
+                <p><a href="https://maps.google.com/?q=Kurunegala" target="_blank">View on Google Maps</a></p>
+            </div>
+            </div>
+        </section>
+
+        <!-- Kaluthara Section -->
+        <section id="kaluthara" class="section">
+            <h2>Kaluthara</h2>
+            <p>
+                Our Kaluthara hospital is a trusted healthcare provider in the coastal region. With a focus on patient satisfaction, we offer a range of services, including general medicine,
+                gynecology, and dentistry. <b>Dr. A.P. Perera</b>, a skilled gynecologist, and <b>Dr. S.S. Sanadeera</b>, a renowned general physician, lead our team of experienced healthcare professionals.<br>
+            </p><br>
+            <ul>
+                <li>Peaceful and serene environment</li>
+                <li>Experienced doctors and nurses</li>
+                <li>Convenient location near the beach</li>
+            </ul>
+            <img src="branch/kaluthara.jpg" class="img">
+
+            <div class="contact-info">
+            
+                <p>Address: 78 Beach Rd, Kalutara, Sri Lanka</p>
+                <p>Phone: +94 34 123 7890</p>
+                <p><a href="https://maps.google.com/?q=Kalutara" target="_blank">View on Google Maps</a></p>
+            </div>
+        </section>
+
+        <!-- Maharagama Section -->
+        <section id="maharagama" class="section">
+            <h2>Maharagama</h2>
+            <p>Our Maharagama hospital is a leading healthcare provider in the Western Province. 
+                With a focus on advanced medical treatments, we offer a wide range of specialties, 
+                including cardiology, neurology, and oncology. <b>Dr. P.Karunarathna</b>, a renowned cardiologist, 
+                and <b>Dr. T.M.Somalatha</b>, a skilled neurologist, are among our team of experts.
+
+                </p><br>
+            <ul>
+                <li>Advanced medical technology</li>
+                <li>Highly skilled specialists</li>
+                <li>Comprehensive cancer care services</li>
+            </ul>
+            <img src="branch/homagama.jpg" class="img">
+            <div class="contact-info">
+                <p>Address: 25 Flower Rd, Maharagama, Sri Lanka</p>
+                <p>Phone: +94 11 234 5678</p>
+                <p><a href="https://maps.google.com/?q=Maharagama" target="_blank">View on Google Maps</a></p>
+            </div>
+        </section>
+
+        <!-- Rathnapura Section -->
+        <section id="rathnapura" class="section">
+            <h2>Rathnapura</h2>
+            <p>Our Rathnapura hospital is committed to providing quality healthcare to the people of the Sabaragamuwa Province. 
+                With a focus on community health, we offer a range of services, including general medicine, pediatrics, and geriatrics. 
+                <b>Dr. A.M.Smarawikkrama</b>, a skilled pediatrician, and <b>Dr. H.M.Mallika</b>, a renowned geriatrician, lead our team of dedicated healthcare professionals
+                </p><br>
+                <ul>
+                    <li>Affordable healthcare solutions</li>
+                    <li>Convenient location and ample parking</li>
+                    <li>Friendly and compassionate staff</li>
+                </ul><br>
+                <img src="branch/galle.jpg" class="img">
+                <div class="contact-info">
+                    <p>Address: 14 Gem St, Rathnapura, Sri Lanka</p>
+                    <p>Phone: +94 45 987 6543</p>
+                    <p><a href="https://maps.google.com/?q=Rathnapura" target="_blank">View on Google Maps</a></p>
+                </div>
+        </section>
+        
+    </div>
+
+     <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>
