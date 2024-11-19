@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <style>
+        /* CSS for the blog layout and styles */
+        * {
+            scroll-margin-block-end: 250px;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            
+            background-color: #dff4fa;
+            color: #333;
+        }
+
+        
+        .navbar {
+            z-index: 10;
+        }
+
+        .navbar .nav-link {
+            color: #ffffff;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .nav-link:hover {
+            color: #0dcaf0;
+        }
+
+        .navbar .nav-link.active {
+            color: #ffcc00; /* Active link color */
+        }
+
+
+
+        .blog-header {
+            text-align: center;
+            padding: 20px;
+            background-color: #2d3e50;
+            color: #fff;
+        }
+        .blog-header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        .blog-post {
+            padding: 20px;
+            flex-grow: 1;
+            background-color: #ecf0f1;
+            background-image: url('back.jpeg'); /* Add background image */
+            background-size: cover; /* Makes the image cover the entire background */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        .post {
+            background-color: #fff;
+            padding: 8px;
+            margin: 0 auto 20px auto;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .post-title {
+            font-size: 1.2em;
+            margin-bottom: 8px;
+            color: #2d3e50;
+        }
+        .post-meta {
+            font-size: 0.85em;
+            color: #777;
+        }
+        .post-meta a {
+            color: #ff8c00;
+            text-decoration: none;
+        }
+        .post-image {
+            width: 50%;
+            max-height: 250px;
+            margin: 10px auto;
+            display: block;
+            border-radius: 5px;
+        }
+        .post-content {
+            font-size: 0.85em;
+            line-height: 1.3;
+            color: #555;
+            margin-bottom: 8px;
+        }
+        .read-more {
+            text-decoration: none;
+            color: #fff;
+            background-color: #61a3ee;
+            padding: 5px 8px;
+            font-size: 0.85em;
+            border-radius: 3px;
+            transition: background-color 0.3s ease;
+        }
+        .read-more:hover {
+            background-color: #7050e4;
+        }
+        .sidebar {
+            background-color: #e9e9e9;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .sidebar h3 {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            margin: 0;
+            text-align: center;
+        }
+        .sidebar .story {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+        }
+        .sidebar .story img {
+            width: 70px;
+            height: 70px;
+            margin-right: 10px;
+        }
+        #article-content {
+            background-color: #daf7f8;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .advertisement {
+            font-size: 0.8em;
+            text-align: right;
+        }
+        .blog-footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #2d3e50;
+            color: #fff;
+            font-size: 0.9em;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+
+    !-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand logo" href="#">Health-Bridge</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="AboutN.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#branches">Branches</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="FAQ.html">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link cart-icon" href="cart"><ion-icon name="cart"></ion-icon></a></li>
+                </ul>
+                <form class="d-flex ms-3">
+                    <input class="form-control me-2" type="search" placeholder="Type to search" aria-label="Search">
+                    <button class="btn btn-outline-light" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+    <header class="blog-header">
+        <h1>Our Latest Insights in Health</h1>
+    </header>
+
+    <div class="row">
+        <div class="col-md-8">
+            <main class="blog-post">
+                <div class="row">
+                    <div class="col-md">
+                        <article class="post">
+                            <h2 class="post-title">ADHD drugs' impact on brain health, quality of life: What we know</h2>
+                            <p class="post-meta">Published on October 30, 2024 by <a href="#">Maria Cohut, Ph.D.</a></p>
+                            <img src="adhd.jpeg" alt="ADHD Medication" class="post-image">
+                            <p class="post-content">Around 25% of adults in the United States suspect they may have undiagnosed attention deficit/hyperactivity disorder (ADHD).</p>
+                            <a href="#" onclick="loadArticleContent('article1')" class="read-more">Read More</a>
+                        </article>
+                    </div>
+                    <div class="col-md">
+                        <article class="post">
+                            <h2 class="post-title">Research reveals effects of resistance training break on muscle and strength</h2>
+                            <p class="post-meta">Published on October 25, 2024 by <a href="#">University of Jyväskylä</a></p>
+                            <img src="helth.jpeg" alt="Strength workouts" class="post-image">
+                            <p class="post-content">A study conducted at the University of Jyväskylä's Faculty of Sport and Health Sciences investigated...</p>
+                            <a href="#" onclick="loadArticleContent('article2')" class="read-more">Read More</a>
+                        </article>
+                    </div>
+                    <div class="col-md">
+                        <article class="post">
+                            <h2 class="post-title">One medic left at Gaza hospital as Israel says it arrested 100 ‘terrorists’</h2>
+                            <p class="post-meta">Published on October 28, 2024 by <a href="#">BBC News</a></p>
+                            <img src="3rdnews.jpeg" alt="Gaza hospital" class="post-image">
+                            <p class="post-content">Only one doctor remains at Gaza's Kamal Adwan Hospital following a days-long Israeli raid, a spokesman for the Hamas-run health ministry has said.</p>
+                            <a href="#" onclick="loadArticleContent('article3')" class="read-more">Read More</a>
+                        </article>
+                    </div>
+                    <div class="col-md">
+                        <article class="post">
+                        <h2 class="post-title">Most Benefit, Least Cost: Choosing the Right Antipsychotic</h2>
+                        <p class="post-meta">Published on October 31, 2024 by <a href="#">Pauline Anderson </a> </p>
+                        <img src="4thnews.jpeg" alt="Most Benefit" class="post-image">
+                        <p class="post-content">Antipsychotics are the best defense against relapse in schizophrenia, even though that protection often comes at the expense of cognitive function.</p> 
+                        <a href="#" onclick="loadArticleContent('article4')" class="read-more">Read More</a>
+                    </article>
+                    </div>
+                </div>
+                <!-- This div will contain the dynamically loaded content -->
+                <div id="article-content"></div>
+            </main>
+        </div>
+
+        <div class="col">
+            <div class="sidebar">
+                <h3>Latest News</h3>
+                <div class="story">
+                    <img src="images1.jpeg" alt="Brain development">
+                    <a href="https://www.news-medical.net/news/20241028/Study-reveals-the-impact-of-parenting-on-childs-brain-development-and-mental-health.aspx">Study reveals the impact of parenting on child's brain development and mental health </a>
+                </div>
+                <div class="story">
+                    <img src="eyes.jpeg" alt="Eye Image">
+                    <a href="https://www.news-medical.net/news/20241024/Daily-pistachio-consumption-linked-to-improved-eye-health.aspx">Daily pistachio consumption linked to improved eye health</a>
+                </div>
+                <div class="story">
+                    <img src="3rd.jpeg" alt="mRNA Image">
+                    <a href="https://www.news-medical.net/news/20241023/Repeated-mRNA-vaccinations-enhance-mucosal-antibody-production.aspx">Repeated mRNA vaccinations enhance mucosal antibody production</a>
+                </div>
+                <div class="story">
+                    <img src="mask.jpeg" alt="COVID-19 Image">
+                    <a href="https://www.news-medical.net/news/20241024/Masks-and-smart-seating-cut-COVID-19-risks-on-flights-review-finds.aspx">Masks and smart seating cut COVID-19 risks on flights</a>
+                </div>
+                <div class="story">
+                    <img src="st5.jpeg" alt="Tackle Stubborn UTIs">
+                    <a href="https://gizmodo.com/new-antibiotic-hits-the-market-to-tackle-stubborn-utis-2000517862">New Antibiotic Hits the Market to Tackle Stubborn UTIs</a>
+                </div>
+                <div class="story">
+                    <img src="6story.jpeg" alt="Fake prescription">
+                    <a href="Deadly Opioid Nitazene Discovered in Fake Prescription Medications By Sammi Caramela October 30, 2024, 10:37am">Deadly Opioid Nitazene Discovered in Fake Prescription Medications</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="advertisement">
+        <p>advertisement</p>
+    </div>
+
+    <footer class="blog-footer">
+        <p>&copy; 2024 Health Bridge Blog. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function loadArticleContent(articleId) {
+            const contentDiv = document.getElementById('article-content');
+            let content = "";
+
+            if (articleId === "article1") {
+                content = `
+                    <h2>ADHD drugs' impact on brain health, quality of life: What we know</h2>
+                    <p>Published on October 30, 2024 by Maria Cohut, Ph.D.</p>
+                    <p>Around 25% of adults in the United States suspect they may have undiagnosed attention deficit/hyperactivity disorder (ADHD), a recent survey has found.</p>
+                    <p><ul>
+                        <li>As awareness of the symptoms of ADHD in adults, in general, and women, in particular, increases, more and more people are seeking diagnosis and treatment.</li>
+                            
+                            <li>One recent study suggests that ADHD medication can help boost cognitive function. Another has found that people taking these drugs even have a lower risk of premature death.</li>
+                            
+                            <li>However, it is not all good news: High doses of ADHD medication have also been linked to a heightened risk of psychosis, prompting doctors to exercise extra caution in treating their patients.</li>
+                            </ul> <br>
+
+                            Recently, a national survey of 1,000 adults in the United States conducted by <a href = "https://wexnermedical.osu.edu/"> The Ohio State University Wexner Medical Center </a> and <a href = "https://medicine.osu.edu/"> College of Medicine </a> found that 25% of respondents suspected they might have undiagnosed attention deficit/hyperactivity disorder (ADHD). <br> <br>
+
+                            That means that around one in four U.S. adults suspects they may have this developmental condition. While this may seem like a large number, it is perhaps unsurprising, given the rise in research on the causes and symptoms of ADHD and an increased awareness of what it actually looks like in adults, particularly in women. <br> <br>
+
+                            However, the researchers who conducted the recent survey expressed a worry that only 13% of respondents said they had sought advice on their suspected ADHD from a healthcare professional. <br> <br>
+
+                            “Anxiety, depression, and ADHD — all these things can look a lot alike, but the wrong treatment can make things worse instead of helping that person feel better and improving their functioning,” emphasized <a href = "https://wexnermedical.osu.edu/mediaroom/expertslisting/justin-barterian"> Justin Barterian, PhD, </a> a clinical assistant professor in the Department of Psychiatry and Behavioral Health at The Ohio State University Wexner Medical Center, in a press release. <br> <br>
+
+                            Indeed, recent studies have been highlighting the impact of medication in the treatment of ADHD, showing that the correct prescription can improve cognitive functioning and even lead to a decreased death risk. <br> <br>
+
+                            However, some caveats remain, especially regarding some high-dosage treatments. Here is what we know so far. <br>
+                            </p>
+                `;
+            } else if (articleId === "article2") {
+                content = `
+                    <h2>Research reveals effects of resistance training break on muscle and strength</h2>
+                    <p>Published on October 25, 2024 by University of Jyväskylä</p>
+                    <p>A study conducted at the University of Jyväskylä's Faculty of Sport and Health Sciences investigated the effects of resistance training breaks on muscle strength and muscle size. The study found that a 10-week break halfway through 20 total weeks of strength training had little effect on development. During the break, maximal strength was better preserved than muscle size.</p>
+                    
+                    <p>The study compared the results of 20 weeks of resistance training in two groups, one with continuous training and one with a 10-week break midway. <br> <br>
+
+                        The study found that the results for maximum strength and muscle size development were similar in both groups. According to the researchers, the equal progress in both groups was due to the fact that maximum strength and especially muscle size quickly returned to pre-break levels when training was resumed. <br> <br>
+
+                        "During the first few weeks after the break, progress was very rapid and after only five weeks of re-training, the pre-break level had already been reached," says Eeli Halonen from the Faculty of Sport and Health Sciences, who is writing his doctoral thesis on the effects of the training break. 
+                        </p>
+
+                        <p> <h3> <b> "Muscle memory" will next be studied at the cellular and molecular level </b> </h3> </p>
+
+                            <p> The phenomenon where the previous level of muscle size is quickly regained after a break is termed "muscle memory". <br> <br>
+
+                                "The physiological mechanisms of muscle memory are not yet fully understood," say senior researchers Juha Hulmi and Juha Ahtiainen, "and our next step is to study in more depth the cellular and molecular changes in muscles that could potentially explain this phenomenon." 
+                                </p>
+                `;
+            } else if (articleId === "article4") {
+                content = `
+                    <h2>Most Benefit, Least Cost: Choosing the Right Antipsychotic</h2>
+                    <p>Published on October 31, 2024 by auline Anderson</p>
+                    <p>Antipsychotics are the best defense against relapse in schizophrenia, even though that protection often comes at the expense of cognitive function. Which drugs offer the greatest benefit with the least cost is unclear.</p>
+                    
+                    <p> That’s partly because about 80% of individuals with schizophrenia who use antipsychotics aren’t eligible for randomized controlled trials (RCTs), mostly due to somatic comorbidities, use of other psychotropic drugs, or history of suicidality or substance abuse. <br> <br>
+
+                        In addition, the trials rarely compare drugs head-to-head, and they’re often short in duration, making measurement of long-term outcomes difficult, Aleksi Hamina, PhD (Pharm), a researcher with Niuvanniemi Hospital, Kuopio, Finland, told <I> Medscape Medical News. </I> <br> <br>
+
+                        Two new studies that compared antipsychotics seek to fill that gap. The first, which Hamina led, measured the efficacy of various antipsychotics vs oral olanzapine and found paliperidone 3-month long-acting injectable (LAI) outperformed other agents in preventing relapses. <br> <br>
+
+                        The second analysis showed that while no specific antipsychotic offered greater cognitive benefit, first-generation dopamine blockers fared worse for preserving attention, concentration, and memory. <br> <br>
+                        </P>
+
+                        <p> <h3> <b>Antipsychotic Comparisons Lacking</b> </h3> </p>
+
+                            <p>Research suggests relapses can lead to harm, reduce the quality of life, and have a heavy economic impact on patients with schizophrenia.<br> <br>
+                                
+                                While prior studies had suggested clozapine and LAIs were especially effective at relapse prevention, much of the research relied on the nonuse of antipsychotics as a reference, revealing little about how different antipsychotics compare with one another. <br> <br>
+
+                                “This information is of the utmost importance so that clinicians can assess which agents to prioritize,” Hamina and colleagues wrote in a study published online on October 9 in <I> JAMA Network Open. </I> <br> <br>
+
+                                The new research included 131,476 participants (mean age, 46 years; 53% men) diagnosed with a schizophrenia spectrum disorder from 2006 to 2021 who were followed for a median of 12 years. <br> <br>
+
+                                Using data from linked Swedish health-related registries, researchers examined outpatient antipsychotic use and hospitalizations and estimated when drug use started and ended. They divided drug formulations into oral antipsychotics and LAIs and compared them with oral olanzapine, the most frequently used antipsychotic. <br> <br>
+
+                                During the follow-up, 48.5% of the cohort experienced a relapse at least once.
+                                </p>
+
+                `;
+            } else if (articleId === "article3") {
+                content = `
+                    <h2>One medic left at Gaza hospital as Israel says it arrested 100 ‘terrorists’</h2>
+                    <p>Published on October 28, 2024 by BBC News</p>
+                    <p>Only one doctor remains at Gaza's Kamal Adwan Hospital following a days-long Israeli raid, a spokesman for the Hamas-run health ministry has said.</p>
+                    
+                    <p>In a video statement, Dr Khalil Daqran urged international organisations to send medical staff to the hospital in the north of the strip, saying patients there were bleeding to death for lack of proper care. <br> <br>
+
+                        On Monday, Israel said its forces had detained about 100 "terrorists" at the hospital before withdrawing <br>
+                        The Israel Defense Forces (IDF) said the hospital, inside Jabalia refugee camp, had been used by Hamas - claims denied by local health officials. <br> <br>
+
+                        Mr Daqran said: "Two days ago, the army stormed Kamal Adwan Hospital, causing widespread destruction: setting large parts on fire, destroying the hospital’s entrances, and demolishing surrounding walls. <br> <br>
+
+                        "Patients and medical staff were assaulted, with many patients and companions arrested, along with most of the medical staff. <br>
+                        "The fate of 30 medical personnel remains unknown. <br>
+                        "The army has removed the hospital from service entirely, destroying all its contents. There are now no medicines, medical supplies or food within the hospital." <br> <br>
+
+                        The Israel Defense Forces (IDF) confirmed it had completed a "precise operation against a Hamas terrorist stronghold" in the hospital. <br>
+
+                        The IDF said it had taken steps to minimise civilian casualties and facilitated the evacuation of the hospital. It added that troops found weapons, cash and documents belonging to Hamas during the raid. <br> <br
+
+                        Some Hamas militants, including some linked to last year's 7 October attacks, disguised themselves as medical staff, the IDF said. <br
+                        The Israeli raid injured medics and killed patients at the hospital, health officials said. <br>
+                        The Israeli army published a video purporting to show the interrogation of an ambulance driver who had worked at Kamal Adwan Hospital.
+                        </p>
+                        <p> <a href="https://www.bbc.com/news/articles/c245n75587vo"> other information </a> </p>
+
+                `;
+            } 
+
+            contentDiv.innerHTML = content;
+        }
+        
+
+
+        // Function to load and display full article content
+/*function loadArticleContent(articleId) {
+    // Get the article content container
+    const contentDiv = document.getElementById('article-content');
+    
+    // Object to store full article contents
+    const articleContents = {
+        'article1': {
+            title: 'ADHD drugs\' impact on brain health, quality of life: What we know',
+            author: 'Maria Cohut, Ph.D.',
+            publishDate: 'October 30, 2024',
+            content: `
+                <p>Around 25% of adults in the United States suspect they may have undiagnosed attention deficit/hyperactivity disorder (ADHD), a recent survey has found.</p>
+                
+                <h3>Key Insights</h3>
+                <ul>
+                    <li>Increased awareness of ADHD symptoms in adults, particularly women</li>
+                    <li>Medication can potentially boost cognitive function</li>
+                    <li>Potential risks associated with high-dose treatments</li>
+                </ul>
+
+                <p>A national survey by The Ohio State University Wexner Medical Center revealed that approximately one in four U.S. adults suspects they might have undiagnosed ADHD. This finding highlights the growing recognition of the condition.</p>
+
+                <p>Dr. Justin Barterian from the Department of Psychiatry and Behavioral Health emphasizes the importance of proper diagnosis: "Anxiety, depression, and ADHD can look similar, but incorrect treatment can worsen symptoms rather than improve them."</p>
+
+                <h3>Research Highlights</h3>
+                <p>Recent studies have shown promising results regarding ADHD medication:
+                <ul>
+                    <li>Potential improvement in cognitive functioning</li>
+                    <li>Possible decreased risk of premature death</li>
+                    <li>Caution advised with high-dosage treatments</li>
+                </ul>
+                </p>
+            `
+        },
+        'article2': {
+            title: 'Research reveals effects of resistance training break on muscle and strength',
+            author: 'University of Jyväskylä',
+            publishDate: 'October 25, 2024',
+            content: `
+                <p>A comprehensive study from the University of Jyväskylä's Faculty of Sport and Health Sciences investigated the impact of resistance training breaks on muscle strength and size.</p>
+
+                <h3>Study Design</h3>
+                <ul>
+                    <li>Compared two groups: continuous training vs. training with a 10-week break</li>
+                    <li>Total training period: 20 weeks</li>
+                    <li>Focus on maximum strength and muscle size development</li>
+                </ul>
+
+                <h3>Key Findings</h3>
+                <p>Eeli Halonen, a doctoral researcher, noted: "During the first few weeks after the break, progress was very rapid. After only five weeks of re-training, the pre-break level had already been reached."</p>
+
+                <h3>Muscle Memory Phenomenon</h3>
+                <p>Researchers are particularly interested in the "muscle memory" effect, where muscle size quickly returns to previous levels after a training break. Senior researchers Juha Hulmi and Juha Ahtiainen plan to investigate the cellular and molecular mechanisms behind this phenomenon.</p>
+
+                <p>The study suggests that short training breaks may not significantly impede long-term muscle development and strength gains.</p>
+            `
+        },
+        // Add other article contents similarly
+    };
+
+    // Check if the article exists
+    if (articleContents[articleId]) {
+        const article = articleContents[articleId];
+        
+        // Create full article view
+        const fullArticleHTML = `
+            <div class="full-article">
+                <h2 class="article-title">${article.title}</h2>
+                <p class="article-meta">Published on ${article.publishDate} by ${article.author}</p>
+                <div class="article-content">
+                    ${article.content}
+                </div>
+                <button onclick="closeArticle()" class="btn btn-secondary mt-3">Close Article</button>
+            </div>
+        `;
+
+        // Insert full article content
+        contentDiv.innerHTML = fullArticleHTML;
+        contentDiv.style.display = 'block';
+
+        // Scroll to the article content
+        contentDiv.scrollIntoView({ behavior: 'smooth' });
+    } else {
+        console.error('Article not found');
+    }
+}
+
+// Function to close the article and return to the blog list
+function closeArticle() {
+    const contentDiv = document.getElementById('article-content');
+    contentDiv.innerHTML = '';
+    contentDiv.style.display = 'none';
+}
+
+// Optional: Add event listener to handle closing the article when clicking outside
+document.addEventListener('click', function(event) {
+    const contentDiv = document.getElementById('article-content');
+    const readMoreButtons = document.querySelectorAll('.read-more');
+    
+    if (contentDiv.style.display === 'block' && 
+        !contentDiv.contains(event.target) && 
+        ![...readMoreButtons].some(btn => btn.contains(event.target))) {
+        closeArticle();
+    }
+});*/
+    </script>
+    
+
+
+</body>
+</html>

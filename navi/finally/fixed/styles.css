@@ -1,0 +1,123 @@
+* {
+    scroll-margin-block-end: 250px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.blog-header {
+    text-align: center;
+    padding: 20px;
+    background-color: #2d3e50;
+    color: #fff;
+}
+
+.blog-header h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.blog-post {
+    padding: 20px;
+    flex-grow: 1;
+    background-color: #ecf0f1;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.post {
+    background-color: #fff;
+    padding: 8px;
+    margin: 0 auto 20px auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+}
+
+.post-title {
+    font-size: 1.2em;
+    margin-bottom: 8px;
+    color: #2d3e50;
+}
+
+.post-meta {
+    font-size: 0.85em;
+    color: #777;
+}
+
+.post-meta a {
+    color: #ff8c00;
+    text-decoration: none;
+}
+
+.post-image {
+width: 50%; /* Reduced width */
+max-height: 250px; /* Set a maximum height to keep it smaller */
+margin: 10px auto; /* Center the image within the post */
+display: block;
+border-radius: 5px;
+}
+
+
+
+
+.post-content {
+    font-size: 0.85em;
+    line-height: 1.3;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.read-more {
+    text-decoration: none;
+    color: #fff;
+    background-color: #ff8c00;
+    padding: 5px 8px;
+    font-size: 0.85em;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.read-more:hover {
+    background-color: #e67e00;
+}
+
+.sidebar {
+    background-color: #e9e9e9;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.sidebar h3 {
+    background-color: #3498db;
+    color: white;
+    padding: 10px;
+    margin: 0;
+    text-align: center;
+}
+
+.sidebar .story {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.sidebar .story img {
+    width: 70px;
+    height: 70px;
+    margin-right: 10px;
+}
+
+.blog-footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #2d3e50;
+    color: #fff;
+    font-size: 0.9em;
+    clear: both;
+}

@@ -1,0 +1,140 @@
+
+body {
+    background-image: url('bg.jpg'); 
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #c3c8ff;
+    color: #fff;
+}
+
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 25px;
+    background-color: #000;
+}
+
+.icon .logo {
+    font-size: 30px;
+    font-weight: bold;
+    color: #00b;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 40px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.cart-icon ion-icon {
+    font-size: 24px;
+    color: #fff;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+}
+
+.srch {
+    padding: 5px;
+    border: 1px solid #00bfff;
+    border-radius: 4px;
+    color: #000000;
+    background-color: #fff;
+}
+
+.btn {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #00bfff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    padding: 20px;
+}
+
+.signup-form {
+    background-color: #222;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 40px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+}
+
+.signup-form h2 {
+    color: #030b0d;
+    margin-bottom: 20px;
+}
+
+.signup-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #12181b;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #333;
+}
+
+.signup-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #101416;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.link {
+    color: #ccc;
+    margin-top: 15px;
+}
+
+.link a {
+    color: #021014;
+    text-decoration: none;
+}
+
+.liw {
+    margin-top: 20px;
+    color: #ccc;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.icons a ion-icon {
+    font-size: 24px;
+    color: #030d11;
+}
